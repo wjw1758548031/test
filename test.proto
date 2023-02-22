@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package test;
+option go_package = "./test";
+import "google/api/annotations.proto";
+
+
+
+service Test {
+
+  //测试接口
+  rpc Test (TestRequest) returns (TestResponse) {
+    option (google.api.http) = {
+      post: "/api/test"
+    };
+  }
+
+}
+message   TestRequest{
+  string id = 1;
+}
+
+message   TestResponse{
+  string  result = 1;
+}
